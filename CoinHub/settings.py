@@ -13,10 +13,10 @@ DEBUG = True
 # ALLOWED_HOSTS = ['127.0.0.1','localhost','http://127.0.0.1:8000/']
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-# ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["*"]
 
 # ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'takhmina1234takhmina1234.pythonanywhere.com']
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'takhmina1234takhmina1234.pythonanywhere.com']
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'takhmina1234takhmina1234.pythonanywhere.com']
 
 
 
@@ -128,10 +128,10 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/' 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # STATIC_URL = 'static/'
-# STATIC_ROOT = '/home/takhmina1234takhmina1234/CoinHub/static'
+STATIC_ROOT = '/home/takhmina1234takhmina1234/CoinHub/static'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
