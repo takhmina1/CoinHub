@@ -47,6 +47,21 @@ class Order(models.Model):
     def __str__(self):
         return f'{self.user.username} - {self.order_type} - {self.amount} {self.cryptocurrency.symbol}'
 
+
+
+
+    def calculate_commission(self, total_amount):
+        if self.commission_type and self.commission_rate:
+            if self.commission_type == 'percent':
+                return total_amount * self.commission_rate
+            elif self.commission_type == 'fixed':
+                return self.commission_rate
+        else:
+            return 0  
+
+    
+
+
     # Метод для выполнения ордера
     def execute_order(self):
         total_cost = self.amount * self.price
@@ -75,14 +90,7 @@ class Order(models.Model):
                 raise ValueError("Недостаточно криптовалюты в портфеле для выполнения ордера на продажу")
 
     # Метод для расчета комиссии
-    def calculate_commission(self, total_amount):
-        if self.commission_type and self.commission_rate:
-            if self.commission_type == 'percent':
-                return total_amount * self.commission_rate
-            elif self.commission_type == 'fixed':
-                return self.commission_rate
-        else:
-            return 0  # Если комиссия не указана, возвращаем 0
+    # Если комиссия не указана, возвращаем 0
 
 class Trade(models.Model):
     # Типы сделок (покупка или продажа)
