@@ -370,3 +370,30 @@ class ApplicationLogSerializer(serializers.ModelSerializer):
         instance.status = new_status
         instance.save()
         return instance
+    
+
+class ApplicationLogSerializer(serializers.ModelSerializer):
+    """Сериализатор для модели ApplicationLog"""
+
+    class Meta:
+        model = ApplicationLog
+        fields = ['id', 'application', 'status']
+
+    def create(self, validated_data):
+        """
+        Создание истории изменений заявки.
+
+        Добавляем бизнес-логику для создания истории изменений заявки.
+        """
+        application_log = ApplicationLog.objects.create(**validated_data)
+        return application_log
+
+    def update_status(self, instance, new_status):
+        """
+        Обновление статуса истории изменений заявки.
+
+        Добавляем возможность обновления статуса истории изменений заявки.
+        """
+        instance.status = new_status
+        instance.save()
+        return instance
