@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from statistics import stdev, mean
 from django.contrib.auth import get_user_model
 from .currency_converter import conversion_rates
+from django.contrib.auth.models import User
 
 
     
@@ -14,7 +15,8 @@ class Transaction(models.Model):
         ('EXCHANGE', 'Обмен'),
     )
 
-    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    
+    user = models.ForeignKey(User, related_name='trading_transactions', on_delete=models.CASCADE)
     transaction_type = models.CharField(max_length=10, choices=TRANSACTION_TYPES)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     currency_type = models.CharField(max_length=50)

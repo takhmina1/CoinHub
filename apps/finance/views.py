@@ -17,6 +17,7 @@ class AccountBalanceView(APIView):
             return Response({"balance": balance}, status=status.HTTP_200_OK)
         return Response({"message": "Счет не найден"}, status=status.HTTP_404_NOT_FOUND)
 
+
 class DepositView(APIView):
     @swagger_auto_schema(
         operation_description="Пополнение баланса",
@@ -59,10 +60,7 @@ class TransactionHistoryView(APIView):
 
 
 
-
-
-
-
+    
 
 
 

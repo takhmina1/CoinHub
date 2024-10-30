@@ -10,9 +10,14 @@ urlpatterns = [
     path('api/faq', include('apps.faq.urls')),
     path('api/trading', include('apps.trading.urls')),
     path('api/trading2', include('apps.trading2.urls')),
+    path('apit/', include('apps.tradingapi.urls')),
+    # path('/trandingapi/', include('apps.tradingapi.urls')),
 
 ]
 
 urlpatterns += yasg_urls
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+

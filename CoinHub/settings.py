@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'apps.trading2',
     # 'apps.notifications',
     'apps.faq',
+    'apps.balanse',
+    'apps.tradingapi',
 ]
 
 MIDDLEWARE = [
