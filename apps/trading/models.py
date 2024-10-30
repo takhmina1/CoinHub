@@ -61,7 +61,6 @@ class Order(models.Model):
 
     
 
-
     # Метод для выполнения ордера
     def execute_order(self):
         total_cost = self.amount * self.price
@@ -89,8 +88,6 @@ class Order(models.Model):
             else:
                 raise ValueError("Недостаточно криптовалюты в портфеле для выполнения ордера на продажу")
 
-    # Метод для расчета комиссии
-    # Если комиссия не указана, возвращаем 0
 
 class Trade(models.Model):
     # Типы сделок (покупка или продажа)
@@ -187,3 +184,5 @@ class Trade(models.Model):
 
         commission = base_commission_rate * total_amount + additional_fee + regulatory_fee
         return commission
+
+

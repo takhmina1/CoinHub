@@ -208,7 +208,12 @@ class RefreshTokenView(TokenRefreshView):
 
 
 
+# from tradingapi.tasks import update_trading_data
 
+def my_view(request):
+    # Ваш код
+    update_trading_data.delay()
+    # Ваш код
 
 
 
